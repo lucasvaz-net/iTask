@@ -3,6 +3,18 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = "CookieAuthentication";
+    options.DefaultSignInScheme = "CookieAuthentication";
+    options.DefaultChallengeScheme = "CookieAuthentication";
+})
+.AddCookie("CookieAuthentication", options =>
+{
+    options.LoginPath = "/Conta/Login"; // Página de login
+    options.AccessDeniedPath = "/Conta/AcessoNegado"; // Página de acesso negado (opcional)
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -18,10 +30,11 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Conta}/{action=Login}/{id?}");
 
 app.Run();

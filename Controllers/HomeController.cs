@@ -1,6 +1,7 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
 using iTask.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -13,6 +14,7 @@ namespace iTask.Controllers
 
 
         // GET: Tarefas
+
         public IActionResult Index()
         {
             List<Tarefa> tarefas = new List<Tarefa>();
@@ -57,6 +59,7 @@ namespace iTask.Controllers
 
 
         // GET: Tarefas/Create
+        
         public IActionResult Create()
         {
             return View();
@@ -66,6 +69,7 @@ namespace iTask.Controllers
 
 
         // POST: Tarefas/Create
+        
         [HttpPost]
         public IActionResult Create(Tarefa tarefa)
         {
@@ -92,6 +96,7 @@ namespace iTask.Controllers
         }
 
         // GET: Tarefas/Edit/5
+        
         public IActionResult Edit(int id)
         {
             Tarefa tarefa = null;
@@ -125,6 +130,7 @@ namespace iTask.Controllers
         }
 
         // POST: Tarefas/Edit/5
+        
         [HttpPost]
         public IActionResult Edit(int id, Tarefa tarefa)
         {
@@ -153,6 +159,7 @@ namespace iTask.Controllers
         }
 
         // GET: Tarefas/Delete/5
+        
         public IActionResult Delete(int id)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
