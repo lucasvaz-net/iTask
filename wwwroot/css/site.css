@@ -16,3 +16,32 @@ html {
 body {
   margin-bottom: 60px;
 }
+body {
+    background-color: #212529;
+    color: #f8f9fa;
+}
+
+table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: inherit;
+}
+
+th {
+    background-color: #343a40;
+    color: #f8f9fa;
+    text-align: center;
+    vertical-align: middle;
+    padding: .75rem;
+    font-weight: bold;
+}
+
+td {
+    text-align: center;
+    vertical-align: middle;
+    padding: .75rem;
+}
+
+a {
+    color: #f8f9fa;
+}

@@ -2,37 +2,43 @@
 
 <h2>Create Tarefa</h2>
 
-@using (Html.BeginForm())
-{
-    <div>
-        <label for="Titulo">Título:</label>
-        @Html.TextBoxFor(model => model.Titulo)
-    </div>
-    <div>
-        <label for="Descricao">Descrição:</label>
-        @Html.TextBoxFor(model => model.Descricao)
-    </div>
-    <div>
-        <label for="DataVencimento">Data de Vencimento:</label>
-        @Html.TextBoxFor(model => model.DataVencimento, new { type = "date" })
-    </div>
-    <div>
-        <label for="Prioridade">Prioridade:</label>
-        @Html.TextBoxFor(model => model.Prioridade, new { type = "number" })
-    </div>
-    <div>
-        <label for="CategoriaId">Categoria:</label>
-        @Html.TextBoxFor(model => model.CategoriaId, new { type = "number" })
-    </div>
-    <div>
-        <label for="StatusId">Status:</label>
-        @Html.TextBoxFor(model => model.StatusId, new { type = "number" })
-    </div>
-    <div>
-        <label for="UsuarioId">Usuário:</label>
-        @Html.TextBoxFor(model => model.UsuarioId, new { type = "number" })
-    </div>
-    <input type="submit" value="Create" />
-}
+<div class="container">
+    @using (Html.BeginForm())
+    {
+        <div class="mb-3">
+            <label for="Titulo" class="form-label">Título:</label>
+            @Html.TextBoxFor(model => model.Titulo, new { @class = "form-control" })
+        </div>
+        <div class="mb-3">
+            <label for="Descricao" class="form-label">Descrição:</label>
+            @Html.TextBoxFor(model => model.Descricao, new { @class = "form-control" })
+        </div>
+        <div class="mb-3">
+            <label for="DataVencimento" class="form-label">Data de Vencimento:</label>
+            @Html.TextBoxFor(model => model.DataVencimento, new { type = "date", @class = "form-control" })
+        </div>
+        <div class="mb-3">
+            <label for="Prioridade" class="form-label">Prioridade:</label>
+            @Html.TextBoxFor(model => model.Prioridade, new { type = "number", @class = "form-control" })
+        </div>
+        <div class="mb-3">
+            <label for="CategoriaId" class="form-label">Categoria:</label>
+            @Html.TextBoxFor(model => model.CategoriaId, new { type = "number", @class = "form-control" })
+        </div>
+        <div class="mb-3">
+            <label for="StatusId" class="form-label">Status:</label>
+            @Html.TextBoxFor(model => model.StatusId, new { type = "number", @class = "form-control" })
+        </div>
+        <div class="mb-3">
+            <label for="UsuarioId" class="form-label">Usuário:</label>
+            @Html.TextBoxFor(model => model.UsuarioId, new { type = "number", @class = "form-control" })
+        </div>
+        <button type="submit" class="btn btn-primary">Adicionar</button>
+    }
 
-@Html.ActionLink("Back to List", "Index")
+    <div>
+        <a class="btn btn-danger" href="@Url.Action("Index")">Retornar</a>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-AEiwRCz4e6mZ0g7szILuAFDCuTjGL5J+Tbg9Q9C/MxZiSEl3b+Z9sA0R5dtNJ3on" crossorigin="anonymous"></script>

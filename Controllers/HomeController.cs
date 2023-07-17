@@ -100,7 +100,7 @@ namespace iTask.Controllers
             {
                 connection.Open();
 
-                string query = "SELECT * FROM Tarefas WHERE id = @id";
+                string query = "SELECT * FROM ViewTarefasNaoExcluidas WHERE id = @id";
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@id", id);
                 SqlDataReader reader = command.ExecuteReader();
@@ -114,9 +114,9 @@ namespace iTask.Controllers
                         Descricao = (string)reader["descricao"],
                         DataVencimento = (DateTime)reader["data_vencimento"],
                         Prioridade = (int)reader["prioridade"],
-                        CategoriaId = (string)reader["categoria_id"],
-                        StatusId = (string)reader["status_id"],
-                        UsuarioId = (string)reader["usuario_id"]
+                        CategoriaId = (string)reader["categoria"],
+                        StatusId = (string)reader["status"],
+                        UsuarioId = (string)reader["usuario"]
                     };
                 }
             }
