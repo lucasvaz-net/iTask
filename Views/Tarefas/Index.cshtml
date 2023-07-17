@@ -1,0 +1,86 @@
+﻿@model List<iTask.Models.Tarefa>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Lista de Tarefas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Q1F0hO+R8eE+efhAvSByd23Oos4VvAynTfIjiG28YbGvZi1U91ARrZrKOSa3MDxv" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #212529;
+            color: #f8f9fa;
+        }
+
+        table {
+            width: 100%;
+            margin-bottom: 1rem;
+            color: inherit;
+        }
+
+        th {
+            background-color: #343a40;
+            color: #f8f9fa;
+            text-align: center;
+            vertical-align: middle;
+            padding: .75rem;
+            font-weight: bold;
+        }
+
+        td {
+            text-align: center;
+            vertical-align: middle;
+            padding: .75rem;
+        }
+
+        a {
+            color: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+        <table class="table table-dark table-striped">
+            <thead>
+                <tr>
+                    <th>Título</th>
+                    <th>Descrição</th>
+                    <th>Data de Vencimento</th>
+                    <th>Prioridade</th>
+                    <th>Categoria</th>
+                    <th>Status</th>
+                    <th>Usuário</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var tarefa in Model)
+                {
+                    <tr>
+                        <td>@tarefa.Titulo</td>
+                        <td>@tarefa.Descricao</td>
+                        <td>@tarefa.DataVencimento</td>
+                        <td>@tarefa.Prioridade</td>
+                        <td>@tarefa.CategoriaId</td>
+                        <td>@tarefa.StatusId</td>
+                        <td>@tarefa.UsuarioId</td>
+                        <td>
+                            @Html.ActionLink("Editar", "Edit", new { id = tarefa.Id }, new { @class = "btn btn-primary" })
+                            @Html.ActionLink("Excluir", "Delete", new { id = tarefa.Id }, new { @class = "btn btn-danger" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <div class="text-center">
+            @Html.ActionLink("Criar Nova Tarefa", "Create", null, new { @class = "btn btn-success" })
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-AEiwRCz4e6mZ0g7szILuAFDCuTjGL5J+Tbg9Q9C/MxZiSEl3b+Z9sA0R5dtNJ3on" crossorigin="anonymous"></script>
+</body>
+</html>

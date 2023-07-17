@@ -1,0 +1,38 @@
+﻿@model iTask.Models.Tarefa
+
+<h2>Create Tarefa</h2>
+
+@using (Html.BeginForm())
+{
+    <div>
+        <label for="Titulo">Título:</label>
+        @Html.TextBoxFor(model => model.Titulo)
+    </div>
+    <div>
+        <label for="Descricao">Descrição:</label>
+        @Html.TextBoxFor(model => model.Descricao)
+    </div>
+    <div>
+        <label for="DataVencimento">Data de Vencimento:</label>
+        @Html.TextBoxFor(model => model.DataVencimento, new { type = "date" })
+    </div>
+    <div>
+        <label for="Prioridade">Prioridade:</label>
+        @Html.TextBoxFor(model => model.Prioridade, new { type = "number" })
+    </div>
+    <div>
+        <label for="CategoriaId">Categoria:</label>
+        @Html.TextBoxFor(model => model.CategoriaId, new { type = "number" })
+    </div>
+    <div>
+        <label for="StatusId">Status:</label>
+        @Html.TextBoxFor(model => model.StatusId, new { type = "number" })
+    </div>
+    <div>
+        <label for="UsuarioId">Usuário:</label>
+        @Html.TextBoxFor(model => model.UsuarioId, new { type = "number" })
+    </div>
+    <input type="submit" value="Create" />
+}
+
+@Html.ActionLink("Back to List", "Index")
