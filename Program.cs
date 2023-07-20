@@ -36,5 +36,11 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Conta}/{action=Login}/{id?}");
+app.MapControllerRoute(
+    name: "loginDireto", // Renomeado para "loginDireto"
+    pattern: "Conta/Login/{email?}/{senha?}",
+    defaults: new { controller = "Conta", action = "LoginDireto" } // Renomeado para "LoginDireto"
+);
+// Outras rotas aqui
 
 app.Run();

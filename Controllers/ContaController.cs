@@ -31,6 +31,25 @@ public class ContaController : Controller
         }
     }
 
+    [HttpGet]
+    public IActionResult LoginDireto(string email, string senha)
+    {
+        if (!string.IsNullOrEmpty(email) && !string.IsNullOrEmpty(senha))
+        {
+            Usuario usuario = VerificarCredenciais(email, senha);
+
+            if (usuario != null)
+            {
+                // Autenticar o usuário e redirecionar para a página desejada
+                // Por exemplo, redirecionar para a página de tarefas
+                return RedirectToAction("Index", "Home");
+            }
+        }
+
+        // Credenciais inválidas ou ausentes, exibir mensagem de erro
+        return RedirectToAction("AcessoNegado", "Conta");
+    }
+
     private Usuario VerificarCredenciais(string email, string senha)
     {
         Usuario usuario = null;
