@@ -10,10 +10,10 @@ namespace iTask.Controllers
 {
     public class Home : Controller
     {
-        private string connectionString = "Data Source=SQL5085.site4now.net;Initial Catalog=db_a9c2c8_tarefas;User ID=db_a9c2c8_tarefas_admin;Password=Vitoriade10.;";
+        private string connectionString = "Data Source=67.211.223.122;Initial Catalog=itask;User ID=tarin;Password=Vitoriade10.;";
 
 
-        // GET: Tarefas
+
 
         public IActionResult Index()
         {
@@ -46,7 +46,7 @@ namespace iTask.Controllers
                     }
                     else
                     {
-                        tarefa.DataVencimento = DateTime.MinValue; // Ou qualquer valor padrão que você desejar
+                        tarefa.DataVencimento = DateTime.MinValue; 
                     }
 
                     tarefas.Add(tarefa);
@@ -58,7 +58,6 @@ namespace iTask.Controllers
         }
 
 
-        // GET: Tarefas/Create
         
         public IActionResult Create()
         {
@@ -68,7 +67,7 @@ namespace iTask.Controllers
 
 
 
-        // POST: Tarefas/Create
+  
         
         [HttpPost]
         public IActionResult Create(Tarefa tarefa)
@@ -95,7 +94,7 @@ namespace iTask.Controllers
             return RedirectToAction("Index");
         }
 
-        // GET: Tarefas/Edit/5
+
         
         public IActionResult Edit(int id)
         {
@@ -129,7 +128,7 @@ namespace iTask.Controllers
             return View(tarefa);
         }
 
-        // POST: Tarefas/Edit/5
+
         
         [HttpPost]
         public IActionResult Edit(int id, Tarefa tarefa)
@@ -158,7 +157,6 @@ namespace iTask.Controllers
             return RedirectToAction("Index");
         }
 
-        // GET: Tarefas/Delete/5
         
         public IActionResult Delete(int id)
         {

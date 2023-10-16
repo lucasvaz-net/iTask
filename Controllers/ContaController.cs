@@ -4,9 +4,9 @@ using System.Data.SqlClient;
 
 public class ContaController : Controller
 {
-    private string connectionString = "Data Source=SQL5085.site4now.net;Initial Catalog=db_a9c2c8_tarefas;User ID=db_a9c2c8_tarefas_admin;Password=Vitoriade10.;";
+    private string connectionString = "Data Source=67.211.223.122;Initial Catalog=itask;User ID=tarin;Password=Vitoriade10.;";
 
-    // GET: Conta/Login
+
     [HttpGet]
     public IActionResult Login()
     {
@@ -20,13 +20,12 @@ public class ContaController : Controller
 
         if (usuario != null)
         {
-            // Autenticar o usuário e redirecionar para a página desejada
-            // Por exemplo, redirecionar para a página de tarefas
+
             return RedirectToAction("Index", "Home");
         }
         else
         {
-            // Credenciais inválidas, exibir mensagem de erro
+
             return RedirectToAction("AcessoNegado", "Conta");
         }
     }
@@ -40,13 +39,12 @@ public class ContaController : Controller
 
             if (usuario != null)
             {
-                // Autenticar o usuário e redirecionar para a página desejada
-                // Por exemplo, redirecionar para a página de tarefas
+
                 return RedirectToAction("Index", "Home");
             }
         }
 
-        // Credenciais inválidas ou ausentes, exibir mensagem de erro
+
         return RedirectToAction("AcessoNegado", "Conta");
     }
 
@@ -72,7 +70,7 @@ public class ContaController : Controller
                     Email = (string)reader["Email"],
                     Id = (int)reader["Id"],
                     Senha = (string)reader["Senha"],
-                    // Preencha outros campos necessários do usuário, se houver
+
                 };
             }
 
